@@ -1,0 +1,74 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{NotoSans-Regular.ttf}[BoldFont=NotoSans-Bold.ttf,ItalicFont=NotoSans-Italic.ttf,BoldItalicFont=NotoSans-BoldItalic.ttf]
+\setsansfont{NotoSans-Regular.ttf}[BoldFont=NotoSans-Bold.ttf]
+\setmonofont{NotoSansMono-Regular.ttf}[Scale=0.87]
+\usepackage[russian]{babel}
+\usepackage[margin=20mm,headheight=15pt]{geometry}
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{202138}
+\definecolor{accent}{HTML}{7140BD}
+\definecolor{muted}{HTML}{606575}
+\definecolor{panel}{HTML}{F5F2FA}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{fvextra}
+\usepackage[most]{tcolorbox}
+\usepackage{xurl}
+\usepackage[colorlinks=true,urlcolor=accent,linkcolor=accent,unicode,pdftitle={ResearcherOS StarterKIT},pdfauthor={ResearcherOS}]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\newtcolorbox{promptbox}{colback=panel,colframe=accent!25,boxrule=0.4pt,arc=3pt,left=9pt,right=9pt,top=7pt,bottom=7pt,before skip=8pt,after skip=10pt}
+\fvset{fontsize=\small,breaklines=true,breakanywhere=true,breaksymbolleft={},breaksymbolright={},baselinestretch=1.1}
+\titleformat{\section}{\Large\bfseries\color{ink}}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{accent}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{0pt}{14pt}
+\titlespacing*{\subsection}{0pt}{12pt}{5pt}
+\setcounter{secnumdepth}{0}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}ResearcherOS / StarterKIT}
+\fancyhead[R]{\small\color{muted}Практическое руководство}
+\fancyfoot[L]{\scriptsize\color{muted}Числовой wCTR · регрессия · CPU}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\emergencystretch}{3em}
+\color{ink}
+\begin{document}
+\begin{titlepage}
+\vspace*{12mm}
+{\color{accent}\large RESEARCHEROS}\par
+\vspace{14mm}
+{\fontsize{38}{44}\selectfont\bfseries StarterKIT}\par
+\vspace{7mm}
+{\Large Первое исследование\\с AI-агентом}\par
+\vspace{12mm}
+{\large Прогноз взвешенной доли кликов\\на данных рекламы велосипедов}\par
+\vspace{12mm}
+\begin{promptbox}
+Восемь шагов: подключение проекта, дерево, карточка, постановка,
+запуск, результаты, редактура и два режима Arbor.
+\end{promptbox}
+\vspace{7mm}
+Читайте действия, копируйте готовое сообщение в указанный чат и проверяйте результат в конце каждого шага. Терминальные команды выполняются отдельно.
+\vfill
+\href{https://github.com/ZoyaV/researcheros_starter_kit}{github.com/ZoyaV/researcheros\_starter\_kit}\par
+\small Набор данных: Sell me this! / 9\,923 строки / 2023-2024\par
+Версия руководства: 9 ноября 2026 г.
+\end{titlepage}
+\tableofcontents
+\vspace{10mm}
+\subsection*{До начала}
+Нужны Git, Git LFS, Python 3.10 или новее, ResearcherOS и настроенный CLI-агент. Сам эксперимент работает на CPU. Подписка или API выбранного агента нужны отдельно.
+
+Ветка исходного набора - main. Дерево вы создадите сами; исследовательские материалы хранит ResearcherOS отдельно от кода.
+\subsection*{Правила сравнения}
+Предсказываем числовой wCTR, не вероятность клика. Основная метрика - RMSE, меньше лучше. Постоянный прогноз сравнивается с деревом, затем с улучшенными вариантами.
+
+Фиксированное разделение по датам: train - 6\,093 строки, validation - 1\,895, test - 1\,935. Подбор выполняется на validation. Итоговый test открывается один раз в конце шага 8. Учебный порог улучшения - 1\%; он не заменяет проверку статистической значимости.
+
+\href{https://github.com/ZoyaV/researcheros_starter_kit/blob/main/data/README.md}{Полное описание данных и протокола в репозитории.}
+% WALKTHROUGH_CONTENT
+\end{document}

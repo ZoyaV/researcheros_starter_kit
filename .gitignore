@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+runs/
+.DS_Store
+guide/*.aux
+guide/*.log
+guide/*.out
+guide/*.toc
+guide/*.xdv
